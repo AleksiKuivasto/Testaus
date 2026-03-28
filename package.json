@@ -5,10 +5,22 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no tests are implemented yet \" && exit 1"
+    "test": "mocha --require ./node_modules/esm/loader.js",
+    "coverage": "nyc mocha --require ./node_modules/esm/loader.js"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/.internal/**"
+    ]
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "esm": "^3.2.25",
+    "mocha": "^11.7.5"
+  }
 }
