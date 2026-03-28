@@ -5,20 +5,25 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha --require ./node_modules/esm/loader.js",
-    "coverage": "nyc mocha --require ./node_modules/esm/loader.js"
+    "test": "mocha",
+    "coverage": "c8 mocha"
   },
-  "nyc": {
+  "c8": {
     "include": [
       "src/**/*.js"
     ],
     "exclude": [
       "src/.internal/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
     ]
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "c8": "^9.1.0",
     "chai": "^6.2.2",
     "esm": "^3.2.25",
     "mocha": "^11.7.5"
